@@ -1,0 +1,36 @@
+<h1>Eventos</h1>
+<button
+  pButton
+  pRipple
+  type="button"
+  label="Crear evento"
+  class="p-button-rounded"
+  [routerLink]="['/registro-evento']"
+></button>
+<p-table [value]="eventos" [tableStyle]="{ 'min-width': '50rem' }">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Evento</th>
+      <th>Fecha evento</th>
+      <th>Cant. Entradas</th>
+      <th>Promocion</th>
+      <th>Fin promocion</th>
+      <th>Descuento</th>
+      <th>Acciones</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-eventos>
+    <tr *ngFor="let evento of eventos" >
+      <td>{{ evento.evento }}</td>
+      <td>{{ evento.fechaEvento }}</td>
+      <td>{{ evento.cantidadEntradas }}</td>
+      <td>{{ evento.promocion.promocion }}</td>
+      <td>{{ evento.promocion.fechaFin }}</td>
+      <td>{{ evento.promocion.descuento }}</td>
+      <td>
+        <i class="pi pi-file-edit" (click)="seleccionarevento(evento)"></i>
+        <i class="pi pi-times"></i>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

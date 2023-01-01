@@ -1,0 +1,35 @@
+<div class="Container">
+  <h1>Registro de eventos</h1>
+  <form>
+    <i class="pi pi-file-edit" (click)="volverListadoEvento()"></i>
+    <div class="col-12 md:col-4">
+      <div class="p-inputgroup">
+        <input type="text" pInputText name="promocion" placeholder="Promocion" [(ngModel)]="evento.promocion.promocion">
+        <button [routerLink]="['/obtener-promociones']" type="button" pButton pRipple label="Search"></button>
+      </div>
+    </div>
+    <br />
+    <span class="p-float-label">
+      <input id="float-input" type="text" name="evento" pInputText [(ngModel)]="evento.evento" />
+      <label for="float-input">Evento</label>
+    </span>
+    <br />
+    <div class="field col-12 md:col-8">
+      <p-calendar name="fechaEvento" [(ngModel)]="evento.fechaEvento" [showIcon]="true" inputId="icon"></p-calendar>
+    </div>
+    <br />
+    <div class="field col-12 md:col-8">
+      <p-inputNumber placeholder="Cantidad entradas" name="cantidadEntradas" [(ngModel)]="evento.cantidadEntradas"
+        inputId="minmax" inputId="minmax" mode="decimal" [min]="0" [max]="100">
+      </p-inputNumber>
+    </div>
+    <br />
+    <div class="field col-12 md:col-8">
+      <p-inputNumber placeholder="Precio" name="precio" [(ngModel)]="evento.precio" [showButtons]="true"
+        inputId="stacked" mode="currency" currency="USD">
+      </p-inputNumber>
+    </div>
+    <hr />
+    <p-button class="field col-12 md:col-8" label="Guardar los cambios" (onClick)="onSubmit()"></p-button>
+  </form>
+</div>

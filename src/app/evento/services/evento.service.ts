@@ -10,9 +10,9 @@ export class EventoService {
 
   eventoSeleccionado!: Evento;
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
     console.log("Servicio http");
-    
+
    }
 
    getEventos(): Observable<Evento> {
@@ -26,4 +26,8 @@ export class EventoService {
     updateEvento(evento: any): Observable<Evento> {
      return this.http.put<Evento>("http://localhost:8081/evento/web-service/api/eventos/update", evento);
     }
+
+    deleteEvento(evento: any): Observable<Evento> {
+      return this.http.put<Evento>("http://localhost:8081/evento/web-service/api/eventos/delete", evento);
+     }
 }
